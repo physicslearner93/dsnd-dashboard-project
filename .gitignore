@@ -160,3 +160,7 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+# The built employee_events package is kept in the repository
+# because the project requires it in python-package/dist/
+!python-package/dist/

@@ -1,0 +1,21 @@
+[flake8]
+# The pre-built component library and the data generation scripts in
+# src/ are provided by the course and are left as supplied, so they
+# are not linted here.
+exclude =
+    src,
+    .git,
+    __pycache__,
+    venv,
+    .venv,
+    build,
+    dist,
+    *.egg-info,
+    report/base_components,
+    report/combined_components
+per-file-ignores =
+    # Package __init__ files re-export names on purpose.
+    python-package/employee_events/__init__.py: F401, F403
+    # dashboard.py uses the star import and the "keep unchanged" block
+    # supplied with the starter code.
+    report/dashboard.py: F401, F403, F405, E402, E251, E303, W293
