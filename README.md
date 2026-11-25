@@ -1,5 +1,8 @@
 # Employee Performance and Recruitment Risk Dashboard
 
+[![Tests](https://github.com/physicslearner93/dsnd-dashboard-project/actions/workflows/test.yml/badge.svg)](https://github.com/physicslearner93/dsnd-dashboard-project/actions/workflows/test.yml)
+[![Lint](https://github.com/physicslearner93/dsnd-dashboard-project/actions/workflows/lint.yml/badge.svg)](https://github.com/physicslearner93/dsnd-dashboard-project/actions/workflows/lint.yml)
+
 This repository holds my final project for the **Software Engineering for Data Scientists** course of the Udacity Data Scientist Nanodegree.
 
 A manufacturing company wants to keep its best employees. Managers record positive and negative performance events for each employee, and a machine learning model uses those events to predict how likely an employee is to be recruited by another company. This project delivers two things:
@@ -60,10 +63,24 @@ pytest
 
 The tests check that the database file exists and that it contains the `employee`, `team` and `employee_events` tables.
 
-Two GitHub Actions run on every push and pull request to the `main` branch:
+## Continuous integration (GitHub Actions)
 
-* **Tests** builds the package, installs the dependencies and runs `pytest`.
-* **Lint** checks the code style with `flake8`, using the settings in `.flake8`.
+Two GitHub Actions workflows run automatically on every push (commit) and every pull request to the `main` branch. Their results are on the [Actions tab](https://github.com/physicslearner93/dsnd-dashboard-project/actions) and in the badges at the top of this page.
+
+| Workflow | File | What it does |
+| --- | --- | --- |
+| **Tests** | [`.github/workflows/test.yml`](.github/workflows/test.yml) | Builds the `employee_events` package, installs the dependencies and runs `pytest` on the `tests` folder. |
+| **Lint** | [`.github/workflows/lint.yml`](.github/workflows/lint.yml) | Checks the code style with `flake8`, using the settings in `.flake8`. |
+
+Both are triggered by:
+
+```yaml
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+```
 
 ## How the code is organized
 
